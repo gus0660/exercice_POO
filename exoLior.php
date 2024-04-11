@@ -1,4 +1,4 @@
-<?php 
+<?php
 $nom = "roch";
 $prenom = "Guillaume";
 $age = 25;
