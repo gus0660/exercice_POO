@@ -1,0 +1,15 @@
+{
+    "name": "groch/exercice_poo",
+    "autoload": {
+        "psr-4": {
+            "Groch\\ExercicePoo\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "gus0660",
+            "email": "guillaumeroch3@gmail.com"
+        }
+    ],
+    "require": {}
+}
