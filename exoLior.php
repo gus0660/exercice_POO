@@ -110,13 +110,12 @@ class Employe
 {
     public $nom;
     public $prenoms;
-    private $age;
+    protected $age;//protected signifie que l'age est accessible dans la classe et ses enfants
     public function __construct($nom, $prenoms, $age)
     {
         $this->nom = $nom;
         $this->prenoms = $prenoms;
         $this->setAge($age);
-        var_dump("HELLO $this->nom $this->prenoms");
     }
     public function setAge($age) {
         if(is_int($age) && $age >= 1 && $age <= 100){
@@ -131,12 +130,32 @@ class Employe
     
     public function presentation()
     {
-        var_dump("Bonjour je m'appelle $this->nom $this->prenoms et j'ai $this->age ans"); {
+        var_dump("HELLO !! je m'appelle $this->nom $this->prenoms et j'ai $this->age ans"); {
         }
     }
 }
+class Patron extends Employe
+// extends signifie que Patron est une instance de la classe Employe et utilise donc les propriétés et les methodes de la classe Employe
+{
+    public $voiture;
+    public function __construct($nom, $prenoms, $age, $voiture)
+    {
+        parent::__construct($nom, $prenoms, $age);
+        $this->voiture = $voiture;
+    }
+    public function presentation() {
+        var_dump("Bien le Bonjour ! Je suis LE PDG $this->nom $this->prenoms et j'ai $this->age ans et je roule avec ma $this->voiture");
+    }
+    public function rouler() {
+        var_dump("Bonjour, je roule avec ma $this->voiture");
+    }
+}
+
 $employe1 = new Employe("roch", "Guillaume", 25);
 $employe2 = new Employe("pernin", "Magali", 36);
-$employe1->setAge(54);
 $employe1->presentation();
 $employe2->presentation();
+$patron = new Patron("Demaesmaker", "Igor", 59, "BMW");
+$patron->presentation();
+$patron->rouler();
+$employe1->setAge(54);
