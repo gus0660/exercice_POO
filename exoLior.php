@@ -163,7 +163,11 @@
 // $employe1->setAge(54);
 
 //                          6EME PARTIE
-class Employe
+
+interface Travailleur {
+    public function travailler();
+}
+class Employe implements Travailleur
 {
     public $nom;
     public $prenoms;
@@ -173,6 +177,9 @@ class Employe
         $this->nom = $nom;
         $this->prenoms = $prenoms;
         $this->setAge($age);
+    }
+    public function travailler() {
+        return "Je suis un employé et je travaille";
     }
     public function setAge($age) {
         if(is_int($age) && $age >= 1 && $age <= 100){
@@ -191,9 +198,11 @@ class Employe
         }
     }
 }
+
 class Patron extends Employe//la classe Patron est spécialisation de la classe Employe, elle étend la classe Employe
 // extends signifie que Patron est une instance de la classe Employe et utilise donc les propriétés et les methodes de la classe Employe
 {
+    
     public $voiture;
     public function __construct($nom, $prenoms, $age, $voiture)
     {
@@ -204,6 +213,9 @@ class Patron extends Employe//la classe Patron est spécialisation de la classe 
     public function presentation() {
         // redéffinition de la methode presentation de la classe mere(Employe)
         var_dump("Bien le Bonjour ! Je suis LE PDG $this->nom $this->prenoms et j'ai $this->age ans et je roule avec ma $this->voiture");
+    }
+    public function travailler() {
+        return "Je suis LE PDG et je fait travailler mes employés";
     }
     public function rouler() {
         var_dump("Bonjour, je roule avec ma $this->voiture");
@@ -225,4 +237,6 @@ $employe1->setAge(54);
 function faireTravailler($objet){
     var_dump("travail en cours : {$objet->travailler()}");
 }
-// c'est la qu'intervient la notion d'interface, c'est un contrat qu'une classe signe et qu'elle doit respecter
+// c'est la qu'intervient la notion d'interface(voir en haut du code), c'est un contrat qu'une classe signe et qu'elle doit respecter
+faireTravailler($employe1);
+faireTravailler($patron);
