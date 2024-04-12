@@ -140,6 +140,7 @@ class Patron extends Employe//la classe Patron est spécialisation de la classe 
     public $voiture;
     public function __construct($nom, $prenoms, $age, $voiture)
     {
+        //on appelle la methode __construct de la classe mere(Employe)
         parent::__construct($nom, $prenoms, $age);
         $this->voiture = $voiture;
     }
