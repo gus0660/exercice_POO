@@ -218,3 +218,7 @@ $patron = new Patron("Demaesmaker", "Igor", 59, "BMW");
 $patron->presentation();
 $patron->rouler();
 $employe1->setAge(54);
+
+// 1)mettons que nous avons besion de faire une fonction"faireTravailler" et qu'on veut recevoir n'importe quel "objet",
+//  mettons que cette fonction doit faire un "var_dump" qui affiche un "string" avec le résultat d'une méthode de l'"objet" et
+// qui s'appelle "travailler"
