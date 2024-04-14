@@ -245,5 +245,5 @@ function faireTravailler(humain $objet){
     var_dump("travail en cours : {$objet->travailler()}");
 }
 // c'est la qu'intervient la notion d'interface(voir en haut du code), c'est un contrat qu'une classe signe et qu'elle doit respecter
-faireTravailler($employe1);
-faireTravailler($patron);
+// faireTravailler($employe1);
+// faireTravailler($patron);
