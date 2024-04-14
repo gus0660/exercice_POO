@@ -164,11 +164,11 @@
 
 //                          6EME PARTIE
 
-abstract class humain 
-{
-    public $nom;
-    public $prenoms;
-    protected $age;//protected signifie que l'age est accessible dans la classe et ses enfants
+// abstract class humain 
+// {
+//     public $nom;
+//     public $prenoms;
+//     protected $age;//protected signifie que l'age est accessible dans la classe et ses enfants
 //     public function __construct($nom, $prenoms, $age)
 //     {
 //         $this->nom = $nom;
