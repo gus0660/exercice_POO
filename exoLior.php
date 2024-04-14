@@ -164,10 +164,7 @@
 
 //                          6EME PARTIE
 
-interface Travailleur {
-    public function travailler();
-}
-class Employe implements Travailleur
+abstract class humain 
 {
     public $nom;
     public $prenoms;
@@ -177,9 +174,6 @@ class Employe implements Travailleur
         $this->nom = $nom;
         $this->prenoms = $prenoms;
         $this->setAge($age);
-    }
-    public function travailler() {
-        return "Je suis un employé et je travaille";
     }
     public function setAge($age) {
         if(is_int($age) && $age >= 1 && $age <= 100){
@@ -191,7 +185,13 @@ class Employe implements Travailleur
     public function getAge() {
         return $this->age;
     }
-    
+    abstract function travailler();
+}
+class Employe extends humain
+{
+    public function travailler() {
+        return "Je suis un employé et je travaille";
+    }
     public function presentation()
     {
         var_dump("HELLO !! je m'appelle $this->nom $this->prenoms et j'ai $this->age ans"); {
@@ -199,6 +199,13 @@ class Employe implements Travailleur
     }
 }
 
+
+class Etudiant extends Humain
+{
+    public function travailler() {
+        return "Je suis un étudiant et je révise !";
+    }
+}
 class Patron extends Employe//la classe Patron est spécialisation de la classe Employe, elle étend la classe Employe
 // extends signifie que Patron est une instance de la classe Employe et utilise donc les propriétés et les methodes de la classe Employe
 {
@@ -234,7 +241,7 @@ $employe1->setAge(54);
 // 1)mettons que nous avons besion de faire une fonction"faireTravailler" et qu'on veut recevoir n'importe quel "objet",
 //  mettons que cette fonction doit faire un "var_dump" qui affiche un "string" avec le résultat d'une méthode de l'"objet" et
 // qui s'appelle "travailler"
-function faireTravailler($objet){
+function faireTravailler(humain $objet){
     var_dump("travail en cours : {$objet->travailler()}");
 }
 // c'est la qu'intervient la notion d'interface(voir en haut du code), c'est un contrat qu'une classe signe et qu'elle doit respecter
