@@ -169,44 +169,44 @@ abstract class humain
     public $nom;
     public $prenoms;
     protected $age;//protected signifie que l'age est accessible dans la classe et ses enfants
-    public function __construct($nom, $prenoms, $age)
-    {
-        $this->nom = $nom;
-        $this->prenoms = $prenoms;
-        $this->setAge($age);
-    }
-    public function setAge($age) {
-        if(is_int($age) && $age >= 1 && $age <= 100){
-            $this->age = $age;
-        } else {
-            throw new Exception("L'age d'un employe doit etre comprise entre 1 et 100 !");
-        }
-    }
-    public function getAge() {
-        return $this->age;
-    }
-    abstract function travailler();
-}
-class Employe extends humain
-{
-    public function travailler() {
-        return "Je suis un employé et je travaille";
-    }
-    public function presentation()
-    {
-        var_dump("HELLO !! je m'appelle $this->nom $this->prenoms et j'ai $this->age ans"); {
-        }
-    }
-}
+//     public function __construct($nom, $prenoms, $age)
+//     {
+//         $this->nom = $nom;
+//         $this->prenoms = $prenoms;
+//         $this->setAge($age);
+//     }
+//     public function setAge($age) {
+//         if(is_int($age) && $age >= 1 && $age <= 100){
+//             $this->age = $age;
+//         } else {
+//             throw new Exception("L'age d'un employe doit etre comprise entre 1 et 100 !");
+//         }
+//     }
+//     public function getAge() {
+//         return $this->age;
+//     }
+//     abstract function travailler();
+// }
+// class Employe extends humain
+// {
+//     public function travailler() {
+//         return "Je suis un employé et je travaille";
+//     }
+//     public function presentation()
+//     {
+//         var_dump("HELLO !! je m'appelle $this->nom $this->prenoms et j'ai $this->age ans"); {
+//         }
+//     }
+// }
 
 
-class Etudiant extends Humain
-{
-    public function travailler() {
-        return "Je suis un étudiant et je révise !";
-    }
-}
-class Patron extends Employe//la classe Patron est spécialisation de la classe Employe, elle étend la classe Employe
+// class Etudiant extends Humain
+// {
+//     public function travailler() {
+//         return "Je suis un étudiant et je révise !";
+//     }
+// }
+// class Patron extends Employe//la classe Patron est spécialisation de la classe Employe, elle étend la classe Employe
 // extends signifie que Patron est une instance de la classe Employe et utilise donc les propriétés et les methodes de la classe Employe
 // {
     
