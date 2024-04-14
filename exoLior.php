@@ -208,11 +208,11 @@ class Etudiant extends Humain
 }
 class Patron extends Employe//la classe Patron est spécialisation de la classe Employe, elle étend la classe Employe
 // extends signifie que Patron est une instance de la classe Employe et utilise donc les propriétés et les methodes de la classe Employe
-{
+// {
     
-    public $voiture;
-    public function __construct($nom, $prenoms, $age, $voiture)
-    {
+//     public $voiture;
+//     public function __construct($nom, $prenoms, $age, $voiture)
+//     {
         //on appelle la methode __construct de la classe mere(Employe)
     //     parent::__construct($nom, $prenoms, $age);
     //     $this->voiture = $voiture;
