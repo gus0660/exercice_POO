@@ -219,24 +219,24 @@ class Patron extends Employe//la classe Patron est spécialisation de la classe 
     }
     public function presentation() {
         // redéffinition de la methode presentation de la classe mere(Employe)
-        var_dump("Bien le Bonjour ! Je suis LE PDG $this->nom $this->prenoms et j'ai $this->age ans et je roule avec ma $this->voiture");
-    }
-    public function travailler() {
-        return "Je suis LE PDG et je fait travailler mes employés";
-    }
-    public function rouler() {
-        var_dump("Bonjour, je roule avec ma $this->voiture");
-    }
-}
+//         var_dump("Bien le Bonjour ! Je suis LE PDG $this->nom $this->prenoms et j'ai $this->age ans et je roule avec ma $this->voiture");
+//     }
+//     public function travailler() {
+//         return "Je suis LE PDG et je fait travailler mes employés";
+//     }
+//     public function rouler() {
+//         var_dump("Bonjour, je roule avec ma $this->voiture");
+//     }
+// }
 
-$employe1 = new Employe("roch", "Guillaume", 25);
-$employe2 = new Employe("pernin", "Magali", 36);
-$employe1->presentation();
-$employe2->presentation();
-$patron = new Patron("Demaesmaker", "Igor", 59, "BMW");
-$patron->presentation();
-$patron->rouler();
-$employe1->setAge(54);
+// $employe1 = new Employe("roch", "Guillaume", 25);
+// $employe2 = new Employe("pernin", "Magali", 36);
+// $employe1->presentation();
+// $employe2->presentation();
+// $patron = new Patron("Demaesmaker", "Igor", 59, "BMW");
+// $patron->presentation();
+// $patron->rouler();
+// $employe1->setAge(54);
 
 // 1)mettons que nous avons besion de faire une fonction"faireTravailler" et qu'on veut recevoir n'importe quel "objet",
 //  mettons que cette fonction doit faire un "var_dump" qui affiche un "string" avec le résultat d'une méthode de l'"objet" et
