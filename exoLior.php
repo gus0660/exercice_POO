@@ -164,79 +164,86 @@
 
 //                          6EME PARTIE
 
-interface Travailleur {
-    public function travailler();
-}
-class Employe implements Travailleur
-{
-    public $nom;
-    public $prenoms;
-    protected $age;//protected signifie que l'age est accessible dans la classe et ses enfants
-    public function __construct($nom, $prenoms, $age)
-    {
-        $this->nom = $nom;
-        $this->prenoms = $prenoms;
-        $this->setAge($age);
-    }
-    public function travailler() {
-        return "Je suis un employé et je travaille";
-    }
-    public function setAge($age) {
-        if(is_int($age) && $age >= 1 && $age <= 100){
-            $this->age = $age;
-        } else {
-            throw new Exception("L'age d'un employe doit etre comprise entre 1 et 100 !");
-        }
-    }
-    public function getAge() {
-        return $this->age;
-    }
-    
-    public function presentation()
-    {
-        var_dump("HELLO !! je m'appelle $this->nom $this->prenoms et j'ai $this->age ans"); {
-        }
-    }
-}
+// abstract class humain 
+// {
+//     public $nom;
+//     public $prenoms;
+//     protected $age;//protected signifie que l'age est accessible dans la classe et ses enfants
+//     public function __construct($nom, $prenoms, $age)
+//     {
+//         $this->nom = $nom;
+//         $this->prenoms = $prenoms;
+//         $this->setAge($age);
+//     }
+//     public function setAge($age) {
+//         if(is_int($age) && $age >= 1 && $age <= 100){
+//             $this->age = $age;
+//         } else {
+//             throw new Exception("L'age d'un employe doit etre comprise entre 1 et 100 !");
+//         }
+//     }
+//     public function getAge() {
+//         return $this->age;
+//     }
+//     abstract function travailler();
+// }
+// class Employe extends humain
+// {
+//     public function travailler() {
+//         return "Je suis un employé et je travaille";
+//     }
+//     public function presentation()
+//     {
+//         var_dump("HELLO !! je m'appelle $this->nom $this->prenoms et j'ai $this->age ans"); {
+//         }
+//     }
+// }
 
-class Patron extends Employe//la classe Patron est spécialisation de la classe Employe, elle étend la classe Employe
+
+// class Etudiant extends Humain
+// {
+//     public function travailler() {
+//         return "Je suis un étudiant et je révise !";
+//     }
+// }
+// class Patron extends Employe//la classe Patron est spécialisation de la classe Employe, elle étend la classe Employe
 // extends signifie que Patron est une instance de la classe Employe et utilise donc les propriétés et les methodes de la classe Employe
-{
+// {
     
-    public $voiture;
-    public function __construct($nom, $prenoms, $age, $voiture)
-    {
+//     public $voiture;
+//     public function __construct($nom, $prenoms, $age, $voiture)
+//     {
         //on appelle la methode __construct de la classe mere(Employe)
-        parent::__construct($nom, $prenoms, $age);
-        $this->voiture = $voiture;
-    }
-    public function presentation() {
+    //     parent::__construct($nom, $prenoms, $age);
+    //     $this->voiture = $voiture;
+    // }
+    // public function presentation() {
         // redéffinition de la methode presentation de la classe mere(Employe)
-        var_dump("Bien le Bonjour ! Je suis LE PDG $this->nom $this->prenoms et j'ai $this->age ans et je roule avec ma $this->voiture");
-    }
-    public function travailler() {
-        return "Je suis LE PDG et je fait travailler mes employés";
-    }
-    public function rouler() {
-        var_dump("Bonjour, je roule avec ma $this->voiture");
-    }
-}
+//         var_dump("Bien le Bonjour ! Je suis LE PDG $this->nom $this->prenoms et j'ai $this->age ans et je roule avec ma $this->voiture");
+//     }
+//     public function travailler() {
+//         return "Je suis LE PDG et je fait travailler mes employés";
+//     }
+//     public function rouler() {
+//         var_dump("Bonjour, je roule avec ma $this->voiture");
+//     }
+// }
 
-$employe1 = new Employe("roch", "Guillaume", 25);
-$employe2 = new Employe("pernin", "Magali", 36);
-$employe1->presentation();
-$employe2->presentation();
-$patron = new Patron("Demaesmaker", "Igor", 59, "BMW");
-$patron->presentation();
-$patron->rouler();
-$employe1->setAge(54);
+// $employe1 = new Employe("roch", "Guillaume", 25);
+// $employe2 = new Employe("pernin", "Magali", 36);
+// $employe1->presentation();
+// $employe2->presentation();
+// $patron = new Patron("Demaesmaker", "Igor", 59, "BMW");
+// $patron->presentation();
+// $patron->rouler();
+// $employe1->setAge(54);
 
 // 1)mettons que nous avons besion de faire une fonction"faireTravailler" et qu'on veut recevoir n'importe quel "objet",
 //  mettons que cette fonction doit faire un "var_dump" qui affiche un "string" avec le résultat d'une méthode de l'"objet" et
 // qui s'appelle "travailler"
-function faireTravailler($objet){
-    var_dump("travail en cours : {$objet->travailler()}");
-}
+// function faireTravailler(humain $objet){
+//     var_dump("travail en cours : {$objet->travailler()}");
+// }
 // c'est la qu'intervient la notion d'interface(voir en haut du code), c'est un contrat qu'une classe signe et qu'elle doit respecter
-faireTravailler($employe1);
-faireTravailler($patron);
+// faireTravailler($employe1);
+// faireTravailler($patron);
